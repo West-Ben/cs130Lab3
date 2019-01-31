@@ -5,8 +5,8 @@
 
 void print_cases(const std::string& name)
 {
-    char up[8];
-    char lo[8];
+    char up[9] = {' ',' ',' ',' ',' ',' ',' ',' ',' '};
+    char lo[9] = {' ',' ',' ',' ',' ',' ',' ',' ',' '};
 
     for(size_t i = 0; i < name.size(); i++)
     {

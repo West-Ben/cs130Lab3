@@ -11,21 +11,16 @@ struct array
     }
 
     array(size_t size)
-        :data(new int[n]), n(size)
+        :data(new int[size]), n(size)
     {
     }
 
-    const int& operator[](size_t i) const
+    int& operator[](size_t i) const
     {
         return data[i];
     }
-
-    int& operator[](size_t i)
-    {
-        return data[i];
-    }
-    
-    const array& operator + (const array& c) const
+   
+    array operator + (array& c)
     {
         array r(n);
         for(size_t i = 0; i < n; i++)
@@ -33,7 +28,7 @@ struct array
         return r;
     }
 
-    const array& operator - (const array& c) const
+    array operator - (array& c)
     {
         array r(n);
         for(size_t i = 0; i < n; i++)
@@ -75,7 +70,7 @@ int main()
     print(d);
 
     print(0, ", ");
-    print(1);
+    print(1," ");
 
     return 0;
 }

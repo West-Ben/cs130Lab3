@@ -37,7 +37,7 @@ public:
     vec location;
 };
 
-void set_names(object* objects, size_t number_objects, const std::string& base_name)
+void set_names_sphere(sphere* objects, size_t number_objects, const std::string& base_name)
 {
     for(size_t i = 0; i < number_objects; i++)
     {
@@ -45,10 +45,19 @@ void set_names(object* objects, size_t number_objects, const std::string& base_n
     }
 }
 
+void set_names_point(point* objects, size_t number_objects, const std::string& base_name)
+{
+    for(size_t i = 0; i < number_objects; i++)
+    {
+        objects[i].name = base_name + std::to_string(i);
+    }
+}
+
+
 int main()
 {
-    sphere * balls = new sphere[10];
-    point * points = new point[10];
+    sphere* balls = new sphere[10];
+    point* points = new point[10];
 
     vec origin;
     for(size_t i = 0; i < 3; i++)
@@ -61,8 +70,9 @@ int main()
         points[i].location = origin;
         points[i].location[0] = 0.2 * i;
     }
-    set_names(balls, 10, "ball-");
-    set_names(points, 10, "point-");
+
+    set_names_sphere(balls, 10, "ball-");
+    set_names_point(points, 10, "point-");
 
     for(size_t i = 0; i < 10; i++)
     {
